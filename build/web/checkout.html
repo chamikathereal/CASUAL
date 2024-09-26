@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CASUAL</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="assets//css/style.css" />
+        <link rel="stylesheet" href="assets//css/singleproduct.css" />
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+        <link rel="stylesheet" href="assets/css/notification.css">
+
+        <style>
+            .body {
+                background-color: #f8f8f8;
+            }
+
+            .container {
+                margin-top: 50px;
+            }
+
+            .card {
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-header {
+                background-color: #007bff;
+                color: white;
+                border-bottom: none;
+                font-size: 1.25rem;
+                padding: 1rem;
+            }
+
+            .form-control {
+                border-radius: 5px;
+                padding: 10px;
+                margin-bottom: 1rem;
+            }
+
+            .city-css{
+                height: 45px;
+            }
+
+            .cart-summary {
+                background-color: #fff;
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .cart-summary h5 {
+                font-weight: bold;
+            }
+
+            .cart-summary .product-item {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+            }
+
+            .cart-summary .promo-code {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cart-summary .promo-code input {
+                width: 60%;
+                border-radius: 5px;
+                padding: 0.5rem;
+                border: 1px solid #ced4da;
+            }
+
+            .cart-summary .promo-code button {
+                padding: 0.5rem 1rem;
+            }
+
+            .cart-summary .total {
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.25rem;
+                font-weight: bold;
+                margin-top: 1rem;
+            }
+
+            @media (max-width: 768px) {
+                .cart-summary {
+                    margin-top: 2rem;
+                }
+            }
+        </style>
+
+    </head>
+
+    <body class="body" onload="loadData(); checkSignIn();">
+        <div class="container">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary mt-5">
+                <div class="container-fluid">
+                    <div class="row w-100">
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-start mb-3 mb-md-0">
+                            <form class="d-flex w-md-auto" role="search">
+                                <input
+                                    class="form-control home-search me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search" />
+                                <button class="btn search-button" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                            <ul class="navbar-nav d-flex align-items-center" id="casual-quick-links">
+                                <li class="nav-item me-5" id="casual-user-name">
+                                    <a href="#"></a>
+                                </li>
+                                <li class="nav-item me-4" id="sign-in-tag">
+                                    <a href="sign-in.html" style="color: #b56700; font-weight: bold; text-decoration: none;">Sign In</a>
+                                </li>
+                                <li class="nav-item me-4">
+                                    <div class="btn-group">
+                                        <button
+                                            id="user-button"
+                                            type="button"
+                                            class="btn border-0 w-0 dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="bi bi-person-circle navbar-icon"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right mt-5" >
+                                            <p class="dropdown-item fs-6 text-center">Quick Links</p>
+
+                                            <hr class="casual-color fw-bold"/>
+                                            
+                                            <a class="dropdown-item fw-bold" href="index.html">Home</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" href="#">My Profile</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" href="dashboard.html">DashBoard</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" id="casual-sign-process" href="#">Log In</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link" href="cart.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-bag-check-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item me-5" id="wishlist">
+                                    <a class="nav-link" href="sign-up.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-heart-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar -->
+            <div class="row">
+                <!-- Billing Address Form -->
+                <div class="col-md-7 mb-5">
+                    <div class="card">
+                        <div class="background-custom">
+                            <h4
+                                class="mt-2 mb-2 fw-bold text-light mx-4">Billing
+                                Address</h4>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12 mb-5">
+                                        <input class="form-check-input custom-checkbox" type="checkbox" value="" id="currentAddressCheckBox">
+                                        <label class="form-check-label  mx-2 mt-0" for="flexCheckDefault">
+                                            Same as your current address?
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="firstName"
+                                               class="form-label">First
+                                            Name</label>
+                                        <input type="text" class="form-control form-control-custom form-control-custom"
+                                               id="first-name"
+                                               placeholder="First Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="last-name"
+                                               class="form-label">Last Name</label>
+                                        <input type="text" class="form-control form-control-custom"
+                                               id="last-name"
+                                               placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address"
+                                           class="form-label">Address</label>
+                                    <input type="text" class="form-control form-control-custom"
+                                           id="address1" placeholder="1234 Main St">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address2"
+                                           class="form-label">Address 2
+                                        (Optional)</label>
+                                    <input type="text" class="form-control form-control-custom"
+                                           id="address2"
+                                           placeholder="Apartment or Suite">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="disabledSelect" class="mb-1">Select Color</label>
+                                        <select id="city" class="form-control city-css form-control-custom">
+                                            <option value="0">Select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName"
+                                               class="form-label">Postal
+                                            Code</label>
+                                        <input type="text" class="form-control form-control-custom"
+                                               id="postal-code"
+                                               placeholder="XXXXX">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address"
+                                               class="form-label">Contact
+                                            Number</label>
+                                        <input type="text" class="form-control form-control-custom"
+                                               id="mobile"
+                                               placeholder="07X-XXX-XXXX">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="cart-summary mb-4">
+                            <h5 class="casula-font-color">Your Cart</h5>
+                            <hr class="mt-3 mb-3" style="border-width: 2px;" />
+                            <div class="col-12 d-flex justify-content-center">
+                                <div class="col-11" id="casual-checkout-body">
+                                    <div class="product-item" id="casual-items">
+                                        <div><span id="casual-item-title">Product-1</span>x<span id="casual-item-qty">1</span> Items.</div>
+                                        <div id="casual-item-subtotal">1000</div>
+                                    </div>
+                                    <hr/>
+                                    <div class="product-item" id="casula-order-subtotal">
+                                        <div>Subtotal</div>
+                                        <div id="casual-full-subtotal">1000</div>
+                                    </div>
+                                    <hr/>
+                                    <div class="product-item" id="casula-order-shipping">
+                                        <div>Shipping Charges</div>
+                                        <div id="casual-shipping-amount">200</div>
+                                    </div>
+                                    <hr/>
+                                    <div class="total" id="casula-order-total">
+                                        <span class="casula-font-color">Total</span>
+                                        <span class="text-success" id="casual-order-total">1500</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cart-summary mb-5">
+                            <div class="product-item">
+                                <div class="col-12">
+                                    <div
+                                        class="row d-flex justify-content-center align-items-center">
+                                        <div class="col-6">
+                                            <h5
+                                                class="fw-bold text-success mt-3">Payment</h5>
+                                        </div>
+                                        <div class="col-6 mt-0 text-end">
+                                            <img
+                                                src="assets/img/Credit_Card_Payment.png"
+                                                class="w-75" alt srcset />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-center">Make your payment with Credit
+                                | Dabit Or Visa Card.</p>
+                            <hr class="mt-3 mb-4" style="border-width: 2px;" />
+                            <div
+                                class="col-12 d-flex justify-content-center mb-3">
+                                <div class="col-11">
+                                    <div class="row">
+                                        <button type="button"
+                                                class="btn background-custom custom-btn-add-to-cart btn-lg btn-block" onclick="checkout();">Make
+                                            Your Payment.</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div
+            class="container-fluid text-center text-lg-start text-white"
+            style="background-color: #b56700">
+            <div class="mt-3" style="color: #b56700;">.</div>
+            <!-- Section: Social media -->
+            <div
+                class="container-fluid d-flex justify-content-between p-4"
+                style="background-color: #ff9800; border-radius: 30px;">
+                <!-- Left -->
+                <div class="me-5">
+                    <span>Get connected with us on social
+                        networks:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </div>
+            <!-- Section: Social media -->
+
+            <!-- Section: Links  -->
+            <section class>
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">CASUAL</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laudantium ipsum repellat at quasi? Optio, doloremque quaerat accusamus esse fugit sunt quidem distinctio ipsam illo recusandae amet aliquid quasi deserunt.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">BRANDS</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Nike
+                            </p>
+                            <p>
+                                Adidas
+                            </p>
+                            <p>
+                                Puma
+                            </p>
+                            <p>
+                                Tommy Hilfiger
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Social Media</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                <a href="#!" class="text-white">Facebook</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Instagram</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Whatsapp</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Twitter</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">Contact</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p><i class="fas fa-home mr-3"></i> 21
+                                Benadic Road, Colombo, Sri Lanka</p>
+                            <p><i class="fas fa-envelope mr-3"></i>
+                                info@casual.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 025
+                                234 5678</p>
+                            <p><i class="fas fa-print mr-3"></i> + 025
+                                234 5679</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <!-- Copyright -->
+            <div
+                class="text-center p-3"
+                style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px;">
+                <p>&copy; <span id="year"></span> CASUAL. All Rights Reserved.</p>
+                <a class="text-white"
+                   href="https://mdbootstrap.com/">www.casual.com</a>
+            </div>
+            <div class="mt-0" style="color: #b56700;">.</div>
+            <!-- Copyright -->
+        </div>
+        <!-- Footer -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+        <script src="assets/js/script.js"></script>
+
+        <script src="assets/js/image.js"></script>
+
+        <script src="assets/js/checkout.js"></script>
+        
+        <script src="assets/js/navbar.js"></script>
+
+        <script src="assets/js/notification.js"></script>
+
+        <!-- Swiper JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js">
+        </script>
+        
+        <script>
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+
+        <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+                                                    var swiper = new Swiper(".mySwiper", {
+                                                        spaceBetween: 30,
+                                                        loop: true, // Enable infinite loop
+                                                        pagination: {
+                                                            el: ".swiper-pagination",
+                                                            clickable: true,
+                                                        },
+                                                        breakpoints: {
+                                                            // When window width is less than 768px (mobile devices)
+                                                            576: {
+                                                                slidesPerView: 1,
+                                                            },
+                                                            // When window width is between 768px and 1024px (tablets, small screens)
+                                                            768: {
+                                                                slidesPerView: 2, // Show 2 slides on tablets
+                                                            },
+                                                            // Default for laptops and desktops
+                                                            993: {
+                                                                slidesPerView: 3, // Show 3 slides on laptops and desktops
+                                                            },
+                                                        },
+
+                                                    });
+        </script>
+    </body>
+</html>

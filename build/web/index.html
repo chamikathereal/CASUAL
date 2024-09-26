@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CASUAL</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="assets//css/style.css" />
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="assets/css/notification.css" />
+
+        <style>
+            .body {
+                background-color: #f8f8f8;
+            }
+        </style>
+    </head>
+
+    <body class="body"
+          onload="checkSignIn(); loadProdcutForIndex(); loadBrandProducts();">
+        <div class="container">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary mt-5">
+                <div class="container-fluid">
+                    <div class="row w-100">
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-start mb-3 mb-md-0">
+                            <form class="d-flex w-md-auto" role="search">
+                                <input
+                                    class="form-control home-search me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search" />
+                                <button class="btn search-button" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                            <ul class="navbar-nav d-flex align-items-center"
+                                id="casual-quick-links">
+                                <li class="nav-item me-5" id="casual-user-name">
+                                    <a href="#"></a>
+                                </li>
+                                <li class="nav-item me-4" id="sign-in-tag">
+                                    <a href="sign-in.html"
+                                       style="color: #b56700; font-weight: bold; text-decoration: none;">Sign
+                                        In</a>
+                                </li>
+                                <li class="nav-item me-4">
+                                    <div class="btn-group">
+                                        <button
+                                            id="user-button"
+                                            type="button"
+                                            class="btn border-0 w-0 dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i
+                                                class="bi bi-person-circle navbar-icon"></i>
+                                        </button>
+                                        <div
+                                            class="dropdown-menu dropdown-menu-right mt-5">
+                                            <p
+                                                class="dropdown-item fs-6 text-center">Quick
+                                                Links</p>
+
+                                            <hr class="casual-color fw-bold" />
+
+                                            <a class="dropdown-item fw-bold"
+                                               href="#">My Profile</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold"
+                                               href="dashboard.html">DashBoard</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold"
+                                               id="casual-sign-process"
+                                               href="#">Log In</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link" href="cart.html">
+                                        <i style="font-size: 1.5rem"
+                                           class="bi bi-bag-check-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item me-5" id="wishlist">
+                                    <a class="nav-link" href="sign-up.html">
+                                        <i style="font-size: 1.5rem"
+                                           class="bi bi-heart-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar -->
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-12 mt-1 mt-md-3 mb-1 mb-md-3 d-flex justify-content-center">
+                    <img src="assets/img/CASUAL-YELLO-BLACK.png"
+                         class="casual-logo" />
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- 2nd navbar -->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mx-auto text-end">
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link active"
+                                       aria-current="page"
+                                       href="#">Home</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link" href="#">Nike</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link" href="#">Adidas</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link">Puma</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link">Tommy Hilfiger</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- 2nd navbar -->
+            </div>
+
+            <!-- Carousel -->
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <div
+                        id="carouselExampleControls mb-3"
+                        class="carousel slide"
+                        data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img
+                                    class="d-block w-100"
+                                    src="assets/img/carouselimg.png"
+                                    alt="First slide" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel -->
+
+            <!-- Welcome Part -->
+
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <h1 class="welcome-heading text-center fw-bold">
+                        Welcome To <span
+                            class="casual-color fw-bold">Casual</span>
+                    </h1>
+                    <h1 class="welcome-heading fw-bold"></h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center mb-5">
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control home-search me-2"
+                                           placeholder="Find Your Tavorite Tee..."
+                                           aria-label="xxxxxxxxx"
+                                           aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-warning fw-bold"
+                                                type="button">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <a href="search.html" class="btn btn-warning text-light background-custom fw-bold btn-block">Advance Search <i class="bi bi-search"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Part -->
+
+            <!-- Hot Deals -->
+            <div class="row">
+                <div class="col-12 mt-4 d-flex justify-content-center">
+                    <div class="col-12 col-md-9">
+                        <h3>Are You Looking For Hot Deals?</h3>
+                        <p class="fw-bold">It's time to shop.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-5 mb-5 d-flex justify-content-center">
+                    <div class="col-12 col-md-9">
+                        <!-- Swiper -->
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper"
+                                 id="similar-product-main">
+
+                                <div class="swiper-slide" id="similar-product"
+                                     style="display: none;">
+                                    <div class="card custom-card-wrapper"
+                                         style="width: 18rem;">
+                                        <a href="#" id="similar-product-a1"
+                                           class="card-link">
+                                            <img id="similar-product-image"
+                                                 class="card-img-top custom-card-img-top"
+                                                 src="#" alt="Card image cap">
+                                        </a>
+                                        <div class="card-body">
+                                            <a href="#" id="similar-product-a2"
+                                               style="text-decoration: none; color: #000000">
+                                                <h6 id="similar-product-title"
+                                                    class="text-start fw-bold text-center">Product
+                                                    Title</h6>
+                                            </a>
+                                            <p
+                                                class="text-center text-success fw-bold mb-1"
+                                                id="similar-product-price">Rs.
+                                                0.00</p>
+                                            <p
+                                                class="text-center fw-bold mt-0"><span
+                                                    id="similar-product-size">Size</span>
+                                                | <span
+                                                    id="similar-product-color">Color</span></p>
+                                            <div
+                                                class="d-flex justify-content-center">
+                                                <button type="submit"
+                                                        id="add-to-cart-similar"
+                                                        class="btn custom-btn-add-to-cart text-light">Add
+                                                    To Cart <i
+                                                        class="bi bi-cart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hot Deals End -->
+
+            <!-- Brand Sections -->
+            <div class="col-12 mt-5 mb-5 d-flex justify-content-center">
+                <div class="col-12 col-md-9">
+                    <div id="brand-hot-deals">
+                        <!-- Brand sections will be dynamically generated here -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div
+            class="container-fluid text-center text-lg-start text-white"
+            style="background-color: #b56700">
+            <div class="mt-3" style="color: #b56700;">.</div>
+            <!-- Section: Social media -->
+            <div
+                class="container-fluid d-flex justify-content-between p-4"
+                style="background-color: #ff9800; border-radius: 30px;">
+                <!-- Left -->
+                <div class="me-5">
+                    <span>Get connected with us on social
+                        networks:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </div>
+            <!-- Section: Social media -->
+
+            <!-- Section: Links  -->
+            <section class>
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">CASUAL</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Asperiores laudantium ipsum
+                                repellat at quasi? Optio, doloremque quaerat
+                                accusamus esse fugit sunt quidem distinctio
+                                ipsam illo recusandae amet aliquid quasi
+                                deserunt.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">BRANDS</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Nike
+                            </p>
+                            <p>
+                                Adidas
+                            </p>
+                            <p>
+                                Puma
+                            </p>
+                            <p>
+                                Tommy Hilfiger
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Social Media</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                <a href="#!" class="text-white">Facebook</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Instagram</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Whatsapp</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Twitter</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">Contact</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p><i class="fas fa-home mr-3"></i> 21
+                                Benadic Road, Colombo, Sri Lanka</p>
+                            <p><i class="fas fa-envelope mr-3"></i>
+                                info@casual.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 025
+                                234 5678</p>
+                            <p><i class="fas fa-print mr-3"></i> + 025
+                                234 5679</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <!-- Copyright -->
+            <div
+                class="text-center p-3"
+                style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px;">
+                <p>&copy; <span id="year"></span> CASUAL. All Rights Reserved.</p>
+                <a class="text-white"
+                   href="https://mdbootstrap.com/">www.casual.com</a>
+            </div>
+            <div class="mt-0" style="color: #b56700;">.</div>
+            <!-- Copyright -->
+        </div>
+        <!-- Footer -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/navbar.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/notification.js"></script>
+
+        <!-- Swiper JS -->
+        <script
+        src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+        <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                loop: true, // Enable infinite loop
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    // When window width is less than 768px (mobile devices)
+                    576: {
+                        slidesPerView: 1,
+                    },
+                    // When window width is between 768px and 1024px (tablets, small screens)
+                    768: {
+                        slidesPerView: 2, // Show 2 slides on tablets
+                    },
+                    // Default for laptops and desktops
+                    993: {
+                        slidesPerView: 3, // Show 3 slides on laptops and desktops
+                    },
+                },
+
+            });
+        </script>
+    </body>
+</html>

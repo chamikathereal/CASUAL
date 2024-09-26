@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CASUAL</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="assets//css/style.css" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+         <link rel="stylesheet" href="assets/css/notification.css">
+        <style>
+            .body {
+                background-color: #f8f8f8;
+            }
+            .icon-hover-primary:hover {
+                border-color: #ff9800 !important;
+                background-color: white !important;
+            }
+
+            .icon-hover-primary:hover i {
+                color: #ff9800 !important;
+            }
+            .icon-hover-danger:hover {
+                border-color: #dc4c64 !important;
+                background-color: white !important;
+            }
+
+            .icon-hover-danger:hover i {
+                color: #dc4c64 !important;
+            }
+            .qty-input-1 {
+                display: flex;
+                align-items: center;
+                width: 100px;
+            }
+
+            .qty-btn-1 {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+                border: none;
+                border-radius: 100%;
+                background-color: #f8f9fa;
+                color: #333;
+            }
+
+            .qty-btn-1:hover {
+                background-color: #e2e6ea;
+            }
+
+            .qty-input-1 input {
+                width: 43px;
+                height: 40px;
+                text-align: center;
+                border:  none;
+                outline: none;
+            }
+            
+    </style>
+    </head>
+
+    <body class="body" onload="loadCartItems(); checkSignIn();">
+        <div class="container">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary mt-5">
+                <div class="container-fluid">
+                    <div class="row w-100">
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-start mb-3 mb-md-0">
+                            <form class="d-flex w-md-auto" role="search">
+                                <input
+                                    class="form-control home-search me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search" />
+                                <button class="btn search-button" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                            <ul class="navbar-nav d-flex align-items-center" id="casual-quick-links">
+                                <li class="nav-item me-5" id="casual-user-name">
+                                    <a href="#"></a>
+                                </li>
+                                <li class="nav-item me-4" id="sign-in-tag">
+                                    <a href="sign-in.html" style="color: #b56700; font-weight: bold; text-decoration: none;">Sign In</a>
+                                </li>
+                                <li class="nav-item me-4">
+                                    <div class="btn-group">
+                                        <button
+                                            id="user-button"
+                                            type="button"
+                                            class="btn border-0 w-0 dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="bi bi-person-circle navbar-icon"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right mt-5" >
+                                            <p class="dropdown-item fs-6 text-center">Quick Links</p>
+                                            
+                                            <hr class="casual-color fw-bold"/>
+                                            
+                                            <a class="dropdown-item fw-bold" href="index.html">Home</a>
+
+                                            <hr />
+                                            
+                                            <a class="dropdown-item fw-bold" href="#">My Profile</a>
+                                            
+                                            <hr />
+                                            
+                                            <a class="dropdown-item fw-bold" href="dashboard.html">DashBoard</a>
+                                            
+                                            <hr />
+                                            
+                                            <a class="dropdown-item fw-bold" id="casual-sign-process" href="#">Log In</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link" href="cart.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-bag-check-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item me-5" id="wishlist">
+                                    <a class="nav-link" href="sign-up.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-heart-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar -->
+        </div>
+
+        <div class="container">
+            <!-- cart -->
+
+            <!-- cart + summary -->
+            <section class="bg-light my-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- cart -->
+                        <div class="col-md-9">
+                            <div class="card border shadow-0">
+                                <div class="background-custom">
+                                    <h4
+                                        class="card-title mt-2 mb-2 fw-bold text-light mx-4">Your
+                                        shopping
+                                        cart</h4>
+                                </div>
+                                <div class="m-4 mb-0 d-none d-md-block">
+                                    <!-- Headers -->
+                                    <div class="row gy-3 mb-0">
+                                        <div class="col-lg-5">
+                                            <div class="me-lg-5">
+                                                <div class="d-flex">
+                                                    <img
+                                                        src="#"
+                                                        class="border-0 rounded me-3"
+                                                        style="width: 96px; height: 0px;" />
+                                                    <div class>
+                                                        <p class="text-muted">Title</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                            <div class>
+                                                <div class="qty-input-1 me-4">
+                                                    <p class="text-muted">Quantity</p>
+                                                </div>
+                                            </div>
+                                            <div class>
+                                                <p class="text-muted">Subtotal</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-4" id="cart-item-container">
+                                    <div class="row gy-3 mb-4" id="cart-item-row">
+                                        <div class="col-lg-5">
+                                            <div class="me-lg-5">
+                                                <div class="d-flex">
+                                                    <a href="#" id="cart-item-a">
+                                                        <img
+                                                        id="cart-item-img"
+                                                        src=""
+                                                        class="border rounded me-3"
+                                                        style="width: 96px; height: 96px;" />
+                                                    </a>
+                                                    <div class>
+                                                        <a href="#" class="nav-link">
+                                                            <p id="cart-item-title">
+                                                               <!--producttitle-->
+                                                            </p>
+                                                        </a>
+                                                        <p
+                                                            class="text-muted"><!-- subtitle --></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                            <div class>
+                                                <div class="qty-input-1 me-4">
+                                                    <button class="qty-btn-1"
+                                                        id="decrease">-</button>
+                                                    <input type="text"
+                                                        id="cart-item-qty"
+                                                        value="1"
+                                                        class="form-control" />
+                                                    <button class="qty-btn-1"
+                                                        id="increase">+</button>
+                                                </div>
+                                            </div>
+                                            <div class>
+                                                <h6 class="mb-1">Rs.<span id="cart-item-subtotal"><!--1000--></span></h6>
+                                                <small
+                                                    class="text-muted text-nowrap">
+                                                    Rs.<span id="cart-item-price"><!--1000--></span> / Per Item </small>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                                            <div class="float-md-end">
+                                                <a href="#!"
+                                                    class="btn btn-light border px-2 icon-hover-primary">
+                                                    <i
+                                                        class="bi bi-heart-fill mx-2"></i>
+                                                </a>
+                                                <a href="#"
+                                                    class="btn btn-light border text-danger icon-hover-danger">
+                                                    Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="border-top pt-4 mx-4 mb-4">
+                                    <p><i
+                                            class="fas fa-truck text-muted fa-lg"></i>
+                                        Delivery within 1-2 weeks</p>
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris
+                                        nisi ut
+                                        aliquip
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- cart -->
+                        <!-- summary -->
+                        <div class="col-md-3">
+                            <div class="card shadow-0 border">
+                                <div class="background-custom">
+                                    <h6 class="card-title mt-2 mb-2 fw-bold text-light mx-4">Order Summary</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Quantities:</p>
+                                        <p class="mb-2" id="cart-total-qty"><!--10--></p>
+                                    </div>
+                                    <hr />
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Total price:</p>
+                                        <p class="mb-2 fw-bold text-success"><span class="fw-bold" id="cart-total"><!--1000--></span></p>
+                                    </div>
+                                    <hr />
+                                    <div class="mt-3">
+                                        <a href="checkout.html"
+                                            class="btn custom-btn-add-to-cart text-light w-100 shadow-0 mb-2">
+                                            Make Purchase </a>
+                                        <a href="#"
+                                            class="btn btn-light w-100 border mt-2">
+                                            Back to shop </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- summary -->
+                    </div>
+                </div>
+            </section>
+            <!-- cart + summary -->
+
+            <!-- cart -->
+        </div>
+        
+        <!-- Footer -->
+        <div
+            class="container-fluid text-center text-lg-start text-white"
+            style="background-color: #b56700">
+            <div class="mt-3" style="color: #b56700;">.</div>
+            <!-- Section: Social media -->
+            <div
+                class="container-fluid d-flex justify-content-between p-4"
+                style="background-color: #ff9800; border-radius: 30px;">
+                <!-- Left -->
+                <div class="me-5">
+                    <span>Get connected with us on social
+                        networks:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </div>
+            <!-- Section: Social media -->
+
+            <!-- Section: Links  -->
+            <section class>
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">CASUAL</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laudantium ipsum repellat at quasi? Optio, doloremque quaerat accusamus esse fugit sunt quidem distinctio ipsam illo recusandae amet aliquid quasi deserunt.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">BRANDS</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Nike
+                            </p>
+                            <p>
+                                Adidas
+                            </p>
+                            <p>
+                                Puma
+                            </p>
+                            <p>
+                                Tommy Hilfiger
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Social Media</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                <a href="#!" class="text-white">Facebook</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Instagram</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Whatsapp</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Twitter</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">Contact</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p><i class="fas fa-home mr-3"></i> 21
+                                Benadic Road, Colombo, Sri Lanka</p>
+                            <p><i class="fas fa-envelope mr-3"></i>
+                                info@casual.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 025
+                                234 5678</p>
+                            <p><i class="fas fa-print mr-3"></i> + 025
+                                234 5679</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <!-- Copyright -->
+            <div
+                class="text-center p-3"
+                style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px;">
+                <p>&copy; <span id="year"></span> CASUAL. All Rights Reserved.</p>
+                <a class="text-white"
+                   href="https://mdbootstrap.com/">www.casual.com</a>
+            </div>
+            <div class="mt-0" style="color: #b56700;">.</div>
+            <!-- Copyright -->
+        </div>
+        <!-- Footer -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/cart.js"></script>
+        <script src="assets/js/notification.js"></script>
+        
+        <script src="assets/js/navbar.js"></script>
+
+        <!-- Swiper JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js">
+        </script>
+        
+        <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+
+            
+            
+        <script>
+            const qtyInput = document.getElementById('cart-item-qty');
+            const increaseBtn = document.getElementById('increase');
+            const decreaseBtn = document.getElementById('decrease');
+
+            increaseBtn.addEventListener('click', function () {
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+            });
+
+            decreaseBtn.addEventListener('click', function () {
+                if (parseInt(qtyInput.value) > 1) {
+                    qtyInput.value = parseInt(qtyInput.value) - 1;
+                }
+            });
+        </script>
+
+        <!-- Initialize Swiper -->
+        <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            loop: true, // Enable infinite loop
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                // When window width is less than 768px (mobile devices)
+                576: {
+                    slidesPerView: 1,
+                },
+                // When window width is between 768px and 1024px (tablets, small screens)
+                768: {
+                    slidesPerView: 2, // Show 2 slides on tablets
+                },
+                // Default for laptops and desktops
+                993: {
+                    slidesPerView: 3, // Show 3 slides on laptops and desktops
+                },
+            },
+
+        });
+    </script>
+    </body>
+</html>
