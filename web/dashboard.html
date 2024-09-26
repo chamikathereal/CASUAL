@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CASUAL</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="assets//css/style.css" />
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+        <link rel="stylesheet" href="assets/css/notification.css">
+
+        <style>
+            .body {
+                background-color: #f8f8f8;
+            }
+        </style>
+    </head>
+
+    <body class="body" onload="loadFeatures(); checkSignIn();">
+        <div class="container-fluid">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary mt-5">
+                <div class="container-fluid">
+                    <div class="row w-100">
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-start mb-3 mb-md-0">
+                            <form class="d-flex w-md-auto" role="search">
+                                <input
+                                    class="form-control home-search me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search" />
+                                <button class="btn search-button" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                            <ul class="navbar-nav d-flex align-items-center" id="casual-quick-links">
+                                <li class="nav-item me-5" id="casual-user-name">
+                                    <a href="#"></a>
+                                </li>
+                                <li class="nav-item me-4" id="sign-in-tag">
+                                    <a href="sign-in.html" style="color: #b56700; font-weight: bold; text-decoration: none;">Sign In</a>
+                                </li>
+                                <li class="nav-item me-4">
+                                    <div class="btn-group">
+                                        <button
+                                            id="user-button"
+                                            type="button"
+                                            class="btn border-0 w-0 dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="bi bi-person-circle navbar-icon"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right mt-5" >
+                                            <p class="dropdown-item fs-6 text-center">Quick Links</p>
+
+                                            <hr class="casual-color fw-bold"/>
+
+                                            <a class="dropdown-item fw-bold" href="index.html">Home</a>
+
+                                            <hr />
+                                            
+                                            <a class="dropdown-item fw-bold" href="#">My Profile</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" href="dashboard.html">DashBoard</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" id="casual-sign-process" href="#">Log In</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link" href="cart.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-bag-check-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item me-5" id="wishlist">
+                                    <a class="nav-link" href="sign-up.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-heart-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar -->
+
+            <div class="col-12 seller-account-bg mb-5">
+                <div class="row">
+
+                    <div class="col-12 d-flex justify-content-center">
+
+                        <div
+                            class="col-11 d-flex justify-content-center">
+                            <div class="col-12">
+                                <!-- Cover Image Section -->
+                                <!--                                <div
+                                                                    class="col-12 col-md-12 border d-flex justify-content-center">
+                                
+                                                                    <img id="coverImage"
+                                                                         src="assets/img/selle-account-cover-image.png"
+                                                                         class="img-fluid sellec-account-cover-img"
+                                                                         alt="Cover Image" />
+                                                                     Hidden file input for cover image 
+                                                                    <input type="file"
+                                                                           id="coverImageInput"
+                                                                           style="display: none;"
+                                                                           accept="image/*" />
+                                
+                                                                </div>-->
+
+                                <!-- Profile Image Section -->
+                                <!--                                <div
+                                                                    class="col-12 col-md-12 border">
+                                                                    <div
+                                                                        class="row d-flex justify-content-center align-items-center">
+                                
+                                                                        <div class="col-3 border">
+                                                                            <img id="profileImage"
+                                                                                 src="assets/img/seller-account.svg"
+                                                                                 class="img-fluid sellec-account-profile-img"
+                                                                                 alt="Profile Image" />
+                                                                             Hidden file input for profile image 
+                                                                            <input type="file"
+                                                                                   id="profileImageInput"
+                                                                                   style="display: none;"
+                                                                                   accept="image/*" />
+                                                                        </div>
+                                                                        <div class="col-7 border">
+                                                                            <h1>Seller Name</h1>
+                                                                            <p class="mb-0">Seller Email</p>
+                                                                            <p>Seller Phone</p>
+                                                                        </div>
+                                
+                                                                    </div>
+                                
+                                                                </div>-->
+
+                                <!-- Dashborad and content -->
+                                <div class="col-12 d-flex justify-content-center body mt-3 mb-5 ">
+                                    <div class="col-12 col-md-11 seller-account-bg  mt-3 mb-3 ">
+                                        <div class="row">
+                                            <div class="col-12 col-md-3 d-flex justify-content-center body ">
+                                                <div class="col-11 seller-account-bg dashboard-css mt-3 mb-3 ">
+                                                    <h5 class="mt-3 fw-bold text-center"><i class="bi bi-speedometer2 fw-bold"></i> DashBoard</h5>
+                                                    <hr/>
+                                                    <a href="" style="text-decoration: none; color: black"><i class="bi bi-person-circle"></i> Edit My Profile</a>
+                                                    <hr/>
+                                                    <a href="" style="text-decoration: none; color: black"><i class="bi bi-bag-plus-fill"></i> Add Products</a>
+                                                    <hr/>
+                                                    <a href="" style="text-decoration: none; color: black"><i class="bi bi-box2-heart-fill"></i> My Products</a>
+                                                    <hr/>
+                                                    <a href="" style="text-decoration: none; color: black"><i class="bi bi-chat-left-text-fill"></i> My Messages</a>
+                                                    <hr/>
+                                                </div>
+                                            </div>
+
+                                            <!-- Edit Profile -->
+                                            <div class="col-12 col-md-9 d-flex justify-content-center body  d-none">
+                                                <div class="col-12 col-md-11 seller-account-bg mt-3 mb-3">
+                                                    <h4 class="mb-0 fw-bold text-center"><i class="bi bi-person-circle"></i> Edit Profile</h4>
+                                                    <form class="mt-5">
+                                                        <div class="row mb-3">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="inputEmail4" class="mb-1">Enter Name.</label>
+                                                                <input type="text" class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="disabledSelect" class="mb-1">Type.</label>
+                                                                <select id="disabledSelect" class="form-control">
+                                                                    <option>Individual</option>
+                                                                    <option>Bussiness</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="inputEmail4" class="mb-1">Mobile
+                                                                    Number.</label>
+                                                                <input type="text" class="form-control">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="inputEmail4" class="mb-1">Email.</label>
+                                                                <input type="email" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group ">
+                                                                <label for="inputCity">Bio</label>
+                                                                <textarea rows="3" type="text" class="form-control"
+                                                                          id="inputCity"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                        <div class="col-4">
+                                                            <a href="seller-account.html" type="button"
+                                                               class="btn btn-primary custom-btn-add-to-cart btn-lg btn-block">Update
+                                                                My Page.</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Add Product -->
+                                            <div class="col-12 col-md-9 d-flex justify-content-center body">
+                                                <div class="col-11 seller-account-bg mt-3 mb-3">
+                                                    <h4 class="mt-3 mb-5 fw-bold text-center"><i class="bi bi-bag-plus-fill"></i> Add Products</h4>
+
+                                                    <!-- Scrollable Form Container -->
+                                                    <div class="form-scrollable mt-3 mb-4">
+                                                        <form>
+                                                            <div class="row mb-3">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputEmail4" class="mb-1">Product Title</label>
+                                                                    <input id="title" type="text" class="form-control">
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="disabledSelect" class="mb-1">Select Brand</label>
+                                                                    <select id="brandSelect" class="form-control">
+                                                                        <option value="0">Select</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="disabledSelect" class="mb-1">Select Size</label>
+                                                                    <select id="sizeSelect" class="form-control">
+                                                                        <option value="0">Select</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="disabledSelect" class="mb-1">Select Color</label>
+                                                                    <select id="colorSelect" class="form-control">
+                                                                        <option value="0">Select</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputEmail4" class="mb-1">Price</label>
+                                                                    <input id="price" type="text" class="form-control">
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputEmail4" class="mb-1">Quantity</label>
+                                                                    <input id="qty" type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group">
+                                                                    <label for="inputCity">Description</label>
+                                                                    <textarea rows="3" class="form-control" id="description"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 mt-4">
+                                                                <div class="row">
+                                                                    <div class="col-3 border">
+                                                                        <img id="profileImage1" src="assets/img/addproductimg.svg" class="img-fluid" alt="" onclick="triggerFileInput(1)" />
+                                                                        <input type="file" id="fileInput1" class="d-none" accept="image/*" onchange="previewImage(1)" />
+                                                                    </div>
+                                                                    <div class="col-3 border">
+                                                                        <img id="profileImage2" src="assets/img/addproductimg.svg" class="img-fluid" alt="" onclick="triggerFileInput(2)" />
+                                                                        <input type="file" id="fileInput2" class="d-none" accept="image/*" onchange="previewImage(2)" />
+                                                                    </div>
+                                                                    <div class="col-3 border">
+                                                                        <img id="profileImage3" src="assets/img/addproductimg.svg" class="img-fluid" alt="" onclick="triggerFileInput(3)" />
+                                                                        <input type="file" id="fileInput3" class="d-none" accept="image/*" onchange="previewImage(3)" />
+                                                                    </div>
+                                                                    <div class="col-3 border">
+                                                                        <img id="profileImage4" src="assets/img/addproductimg.svg" class="img-fluid" alt="" onclick="triggerFileInput(4)" />
+                                                                        <input type="file" id="fileInput4" class="d-none" accept="image/*" onchange="previewImage(4)" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+
+                                                    <!-- Button to Update Page -->
+                                                    <div class="col-12 mt-3 d-flex justify-content-center">
+                                                        <div class="col-12 col-md-4">
+                                                            <button type="button" onclick="productListing();" class="btn btn-primary custom-btn-add-to-cart btn-lg btn-block">Add Product</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Footer -->
+        <div
+            class="container-fluid text-center text-lg-start text-white"
+            style="background-color: #b56700">
+            <div class="mt-3" style="color: #b56700;">.</div>
+            <!-- Section: Social media -->
+            <div
+                class="container-fluid d-flex justify-content-between p-4"
+                style="background-color: #ff9800; border-radius: 30px;">
+                <!-- Left -->
+                <div class="me-5">
+                    <span>Get connected with us on social
+                        networks:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </div>
+            <!-- Section: Social media -->
+
+            <!-- Section: Links  -->
+            <section class>
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">CASUAL</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laudantium ipsum repellat at quasi? Optio, doloremque quaerat accusamus esse fugit sunt quidem distinctio ipsam illo recusandae amet aliquid quasi deserunt.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">BRANDS</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Nike
+                            </p>
+                            <p>
+                                Adidas
+                            </p>
+                            <p>
+                                Puma
+                            </p>
+                            <p>
+                                Tommy Hilfiger
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Social Media</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                <a href="#!" class="text-white">Facebook</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Instagram</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Whatsapp</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Twitter</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">Contact</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p><i class="fas fa-home mr-3"></i> 21
+                                Benadic Road, Colombo, Sri Lanka</p>
+                            <p><i class="fas fa-envelope mr-3"></i>
+                                info@casual.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 025
+                                234 5678</p>
+                            <p><i class="fas fa-print mr-3"></i> + 025
+                                234 5679</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <!-- Copyright -->
+            <div
+                class="text-center p-3"
+                style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px;">
+                © 2024 Copyright:
+                <a class="text-white"
+                    href="https://mdbootstrap.com/">CASUAL.COM</a>
+            </div>
+            <div class="mt-0" style="color: #b56700;">.</div>
+            <!-- Copyright -->
+        </div>
+        <!-- Footer -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/add-product.js"></script>
+        <script src="assets/js/notification.js"></script>
+        <script src="assets/js/navbar.js"></script>
+
+        <script src="assets/js/image.js"></script>
+
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+        <!-- Swiper JS -->
+        <script
+        src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+                                                                var swiper = new Swiper(".mySwiper", {
+                                                                    spaceBetween: 30,
+                                                                    loop: true, // Enable infinite loop
+                                                                    pagination: {
+                                                                        el: ".swiper-pagination",
+                                                                        clickable: true,
+                                                                    },
+                                                                    breakpoints: {
+                                                                        // When window width is less than 768px (mobile devices)
+                                                                        576: {
+                                                                            slidesPerView: 1,
+                                                                        },
+                                                                        // When window width is between 768px and 1024px (tablets, small screens)
+                                                                        768: {
+                                                                            slidesPerView: 2, // Show 2 slides on tablets
+                                                                        },
+                                                                        // Default for laptops and desktops
+                                                                        993: {
+                                                                            slidesPerView: 3, // Show 3 slides on laptops and desktops
+                                                                        },
+                                                                    },
+
+                                                                });
+        </script>
+
+        <script>
+            // Trigger the file input when an image is clicked
+            function triggerFileInput(imageNumber) {
+                document.getElementById('fileInput' + imageNumber).click();
+            }
+
+            // Preview the uploaded image
+            function previewImage(imageNumber) {
+                const fileInput = document.getElementById('fileInput' + imageNumber);
+                const image = document.getElementById('profileImage' + imageNumber);
+
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                }
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
+
+    </body>
+</html>

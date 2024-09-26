@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CASUAL</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="assets//css/style.css" />
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/notification.css">
+
+        <style>
+            .body {
+                background-color: #f8f8f8;
+            }
+
+            .custom-radio {
+                border: 2px solid #b56700;
+                border-radius: 3px;
+            }
+
+            .custom-radio:checked {
+                background-color: #c78523;
+                border-color: #c78523;
+            }
+
+            /* Custom noUiSlider styles */
+            #price-slider .noUi-handle {
+                height: 30px;
+                width: 30px;
+                background-color: #c78523; /* Purple handle color */
+                border-radius: 50%;
+                border: none;
+                box-shadow: none; /* Remove shadow for a cleaner look */
+            }
+
+            #price-slider .noUi-connect {
+                background: rgba(75, 73, 253, 0.1); /* Light purple connection */
+            }
+
+            #price-slider .noUi-target {
+                background: #d1d5db; /* Light grey background of the slider */
+            }
+
+            /* Custom price label styling */
+            .price-label {
+                font-size: 1rem; /* Adjust font size */
+                color: #333; /* Darker text */
+            }
+
+            .price-label span {
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+
+    <body class="body" onload="loadData(); checkSignIn();">
+        <div class="container">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg bg-body-tertiary mt-5">
+                <div class="container-fluid">
+                    <div class="row w-100">
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-start mb-3 mb-md-0">
+                            <form class="d-flex w-md-auto" role="search">
+                                <input
+                                    class="form-control home-search me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search" />
+                                <button class="btn search-button" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div
+                            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+                            <ul class="navbar-nav d-flex align-items-center" id="casual-quick-links">
+                                <li class="nav-item me-5" id="casual-user-name">
+                                    <a href="#"></a>
+                                </li>
+                                <li class="nav-item me-4" id="sign-in-tag">
+                                    <a href="sign-in.html" style="color: #b56700; font-weight: bold; text-decoration: none;">Sign In</a>
+                                </li>
+                                <li class="nav-item me-4">
+                                    <div class="btn-group">
+                                        <button
+                                            id="user-button"
+                                            type="button"
+                                            class="btn border-0 w-0 dropdown-toggle"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="bi bi-person-circle navbar-icon"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right mt-5" >
+                                            <p class="dropdown-item fs-6 text-center">Quick Links</p>
+
+                                            <hr class="casual-color fw-bold"/>
+
+                                            <a class="dropdown-item fw-bold" href="index.html">Home</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" href="#">My Profile</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" href="dashboard.html">DashBoard</a>
+
+                                            <hr />
+
+                                            <a class="dropdown-item fw-bold" id="casual-sign-process" href="#">Log In</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link" href="cart.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-bag-check-fill"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item me-5" id="wishlist">
+                                    <a class="nav-link" href="sign-up.html">
+                                        <i style="font-size: 1.5rem" class="bi bi-heart-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar -->
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-12 mt-1 mt-md-3 mb-1 mb-md-3 d-flex justify-content-center">
+                    <img src="assets/img/CASUAL-YELLO-BLACK.png"
+                         class="casual-logo" />
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- 2nd navbar -->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mx-auto text-end">
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link active"
+                                       aria-current="page"
+                                       href="#">Home</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link" href="#">Clothes</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link" href="#">Shoes</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link">Caps</a>
+                                </li>
+                                <li class="nav-item second-navbar me-5">
+                                    <a class="nav-link">Accessories</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- 2nd navbar -->
+            </div>
+
+            <!-- Carousel -->
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <div
+                        id="carouselExampleControls mb-3"
+                        class="carousel slide"
+                        data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img
+                                    class="d-block w-100"
+                                    src="assets/img/carouselimg.png"
+                                    alt="First slide" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel -->
+
+            <!-- Welcome Part -->
+
+            <div class="col-12 mb-5">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div
+                                class="col-12 col-md-3 d-flex justify-content-center body">
+                                <div
+                                    class="col-11 seller-account-bg  mt-3 mb-3 ">
+                                    <div class="col-12">
+                                        <h5
+                                            class="mt-3 fw-bold text-center"> <i
+                                                class="bi bi-binoculars-fill"></i>
+                                            Find Out</h5>
+                                    </div>
+                                    <hr />
+
+                                    <!-- Brand -->
+                                    <div class="col-12">
+                                        <p><i class="bi bi-amd"></i>&nbsp;<span
+                                                class="casual-color fw-bold">Brands</span></p>
+                                        <div class="col-11 mx-3 form-check form-group-custom" id="brand-options">
+                                            <div class="form-check" id="brand-radio">
+                                                <a id="brand-a">
+                                                    <input
+                                                        class="form-check-input custom-radio"
+                                                        type="radio"
+                                                        name="flexRadioDisabled"
+                                                        id="flexRadioDisabled">
+                                                    <label class="form-check-label"
+                                                           for="flexRadioDisabled">
+                                                        Nike
+                                                    </label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <!-- Size -->
+                                    <div class="col-12">
+                                        <p><i
+                                                class="bi bi-aspect-ratio"></i>&nbsp;<span
+                                                class="casual-color fw-bold">Size</span></p>
+                                        <div class="col-11 mx-3 form-check form-group-custom" id="size-options">
+                                            <div class="form-check" id="size-radio">
+                                                <a>
+                                                    <input
+                                                        class="form-check-input custom-radio"
+                                                        type="radio"
+                                                        name="flexRadioDisabled"
+                                                        id="flexRadioDisabled">
+                                                    <label class="form-check-label"
+                                                           for="flexRadioDisabled">
+                                                        Small
+                                                    </label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <!-- Color -->
+                                    <div class="col-12">
+                                        <p><i
+                                                class="bi bi-palette-fill"></i>&nbsp;<span
+                                                class="casual-color fw-bold">Color</span></p>
+                                        <div class="col-11 mx-3 form-check form-group-custom" id="color-options">
+                                            <div class="form-check" id="color-radio">
+                                                <input
+                                                    class="form-check-input custom-radio"
+                                                    type="radio"
+                                                    name="flexRadioDisabled"
+                                                    id="flexRadioDisabled">
+                                                <label class="form-check-label"
+                                                       for="flexRadioDisabled">
+                                                    Red
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <!-- Price -->
+                                    <div class="col-12">
+                                        <p><i
+                                                class="bi bi-cash-coin"></i>&nbsp;<span
+                                                class="casual-color fw-bold">Price</span></p>
+                                        <div class="col-12 form-check">
+                                            <div id="price-slider"></div>
+                                            <div
+                                                class="row justify-content-center mt-3">
+                                                <div class="col-auto">
+                                                    <span
+                                                        class="price-label">Rs.<span
+                                                            id="slider-value-lower"></span></span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span
+                                                        class="price-label">Rs.<span
+                                                            id="slider-value-upper"></span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <!-- Buttons -->
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <button type="button" class="btn custom-btn-add-to-cart btn-lg btn-block text-light" onclick="searchProducts(0);">Search...  <i class="bi bi-search"></i></button>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center mt-3">
+                                        <button type="button" onclick="reset();" class="btn btn-primary custom-btn-add-to-cart btn-lg btn-block text-light" style="background-color: #00a310;">Reset...  <i class="bi bi-arrow-clockwise"></i></button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- PRODUCT -->
+                            <div
+                                class="col-12 col-md-9 d-flex justify-content-center body">
+
+                                <div
+                                    class="col-11 col-md-12 border seller-account-bg mt-3 mb-3">
+                                    <div class="row">
+
+                                        <div class="col-12 d-flex justify-content-end align-items-center">
+                                            <h6 class="me-5 mt-2">Showing 1-10
+                                                of 20 results</h6>
+                                            <div class="dropdown">
+                                                <select class="form-select ml-4" id="casual-sort" style="border-width: 4px; border-color: #ff9800; font-weight: 4px; color: black; width: 12rem">
+                                                    <option>Sort by Latest</option>
+                                                    <option>Sort by Oldest</option>
+                                                    <option>Sort by Name</option>
+                                                    <option>Sort by Price</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mt-5">
+
+                                            <div class="row" id="casual-product-row">
+                                                <div class="col-4" id="casual-product">
+                                                    <div class="card custom-card-wrapper mb-5" style="width: 18rem;">
+
+                                                        <a href="#" class="card-link" id="casual-product-a-1">
+                                                            <img id="casual-product-img-1" class="card-img-top custom-card-img-top" src="assets/img/Pink.png" alt="Card image cap">
+                                                        </a>
+
+                                                        <div class="card-body text-center">
+                                                            <p class="fw-bold"><span id="casual-product-title-1">Pink and Cream -T-Shirt</span></p>
+                                                            <p class="fw-bold text-muted mb-0">
+                                                                <span class="fw-bold text-danger" id="casual-product-brand-1">Nike</span> |
+                                                                <span class="fw-bold text-muted">Color:</span>
+                                                                <span class="fw-bold text-primary" id="casual-product-color-1">Red</span>
+                                                            </p>
+                                                            <p class="fw-bold text-muted">
+                                                                <span class="fw-bold casual-color" id="casual-product-size-1">Small</span>
+                                                                <span class="fw-bold text-muted">Size</span>
+                                                            </p>
+                                                            <p class="text-success fw-bold" id="casual-product-price-1">Rs.1000.00</p>
+                                                            <div class="d-flex justify-content-center">
+                                                                <a id="casual-product-a-2" class="btn custom-btn-add-to-cart text-light">Add To Cart. <i class="bi bi-cart"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <nav aria-label="...">
+                                                <ul class="pagination d-flex align-items-center" id="casual-pagination-container">
+                                                    <li class="page-item"><a id="casual-pagination-button" class="page-link mx-1" href="#"></a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+
+<!--                                        <div class="text-center pt--20" id="st-pagination-container">
+                                            <a href="#" id="st-pagination-button" class="axil-btn btn-bg-primary me-2"></a>
+                                        </div>-->
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Hot Deals End -->
+
+        </div>
+
+        <!-- Footer -->
+        <div
+            class="container-fluid text-center text-lg-start text-white"
+            style="background-color: #b56700">
+            <div class="mt-3" style="color: #b56700;">.</div>
+            <!-- Section: Social media -->
+            <div
+                class="container-fluid d-flex justify-content-between p-4"
+                style="background-color: #ff9800; border-radius: 30px;">
+                <!-- Left -->
+                <div class="me-5">
+                    <span>Get connected with us on social
+                        networks:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href class="text-white me-4">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </div>
+            <!-- Section: Social media -->
+
+            <!-- Section: Links  -->
+            <section class>
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">CASUAL</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores laudantium ipsum repellat at quasi? Optio, doloremque quaerat accusamus esse fugit sunt quidem distinctio ipsam illo recusandae amet aliquid quasi deserunt.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">BRANDS</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Nike
+                            </p>
+                            <p>
+                                Adidas
+                            </p>
+                            <p>
+                                Puma
+                            </p>
+                            <p>
+                                Tommy Hilfiger
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Social Media</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                <a href="#!" class="text-white">Facebook</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Instagram</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Whatsapp</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-white">Twitter</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div
+                            class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6
+                                class="text-uppercase fw-bold">Contact</h6>
+                            <hr
+                                class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p><i class="fas fa-home mr-3"></i> 21
+                                Benadic Road, Colombo, Sri Lanka</p>
+                            <p><i class="fas fa-envelope mr-3"></i>
+                                info@casual.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 025
+                                234 5678</p>
+                            <p><i class="fas fa-print mr-3"></i> + 025
+                                234 5679</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <!-- Copyright -->
+            <div
+                class="text-center p-3"
+                style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px;">
+                <p>&copy; <span id="year"></span> CASUAL. All Rights Reserved.</p>
+                <a class="text-white"
+                   href="https://mdbootstrap.com/">www.casual.com</a>
+            </div>
+            <div class="mt-0" style="color: #b56700;">.</div>
+            <!-- Copyright -->
+        </div>
+        <!-- Footer -->
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/search.js"></script>
+        <script src="assets/js/navbar.js"></script>
+        <script src="assets/js/notification.js"></script>
+
+        <!-- Swiper JS -->
+        <script
+        src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+        <script>
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+        
+        <!-- Include noUiSlider JavaScript -->
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+                                            var swiper = new Swiper(".mySwiper", {
+                                                spaceBetween: 30,
+                                                loop: true, // Enable infinite loop
+                                                pagination: {
+                                                    el: ".swiper-pagination",
+                                                    clickable: true,
+                                                },
+                                                breakpoints: {
+                                                    // When window width is less than 768px (mobile devices)
+                                                    576: {
+                                                        slidesPerView: 1,
+                                                    },
+                                                    // When window width is between 768px and 1024px (tablets, small screens)
+                                                    768: {
+                                                        slidesPerView: 2, // Show 2 slides on tablets
+                                                    },
+                                                    // Default for laptops and desktops
+                                                    993: {
+                                                        slidesPerView: 3, // Show 3 slides on laptops and desktops
+                                                    },
+                                                },
+
+                                            });
+        </script>
+
+        <script>
+            var priceSlider = document.getElementById('price-slider');
+
+            noUiSlider.create(priceSlider, {
+                start: [0, 10000], // Initial range values
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 50000
+                },
+                step: 1000, // Define the step for each move
+                format: {
+                    to: function (value) {
+                        return Math.round(value);  // Round to integer
+                    },
+                    from: function (value) {
+                        return Number(value);
+                    }
+                }
+            });
+
+            // Elements to display the selected values
+            var lowerValue = document.getElementById('slider-value-lower');
+            var upperValue = document.getElementById('slider-value-upper');
+
+            // Update the displayed values when slider values change
+            priceSlider.noUiSlider.on('update', function (values, handle) {
+                if (handle === 0) {
+                    lowerValue.innerHTML = values[0];
+                } else {
+                    upperValue.innerHTML = values[1];
+                }
+            });
+        </script>
+
+    </body>
+</html>
